@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions xmlns="http://www.firstbase.nl/xsd/personaliom/pattern"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.firstbase.nl/xsd/personaliom/pattern
+                              http://www.firstbase.nl/xsd/personaliom/pattern.xsd">
+    <!--#############################################################################################################-->
+    <!--##### JAVA ##################################################################################################-->
+    <!--#############################################################################################################-->
+    <function name="createPojoPackageName">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.function.java.pojo.create_pojo_package_name}</definition>
+    </function>
+    <function name="createPojoClassName">
+        <!-- Function must be called with 1 argument:
+        1. Name of model object -->
+        <definition>${arg1}</definition>
+    </function>
+
+
+    <!--#############################################################################################################-->
+    <!--##### CONDITIONS ############################################################################################-->
+    <!--#############################################################################################################-->
+    <function name="isObjectEnum">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.condition.java.is_object_enum}</definition>
+    </function>
+    <function name="isReferenceEnum">
+        <!-- Function must be called with 1 argument:
+        1. Name of model reference -->
+        <definition>${fmsnippet.condition.java.is_reference_enum}</definition>
+    </function>
+    <function name="isAttributeTransient">
+        <!-- Function must be called with 1 argument:
+        1. Name of model attribute -->
+        <definition>${fmsnippet.condition.java.is_attribute_transient}</definition>
+    </function>
+    <function name="isAttributeIncludedInPojo">
+        <!-- Function must be called with 1 argument:
+        1. Name of model attribute -->
+        <definition>${fmsnippet.condition.java.is_attribute_included_in_pojo}</definition>
+    </function>
+    <function name="isReferenceIncludedInPojo">
+        <!-- Function must be called with 1 argument:
+        1. Name of model reference -->
+        <definition>${fmsnippet.condition.java.is_reference_included_in_pojo}</definition>
+    </function>
+    <function name="createPojo">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.condition.java.create_pojo}</definition>
+    </function>
+    <function name="isJpa2Entity">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.condition.java.is_jpa2_entity}</definition>
+    </function>
+    <function name="shouldLombokGetterBeAdded">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.condition.java.should_lombok_getter_be_added}</definition>
+    </function>
+    <function name="shouldLombokSetterBeAdded">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.condition.java.should_lombok_setter_be_added}</definition>
+    </function>
+    <function name="shouldLombokToStringBeAdded">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.condition.java.should_lombok_toString_be_added}</definition>
+    </function>
+
+
+    <!--#############################################################################################################-->
+    <!--##### SQL ###################################################################################################-->
+    <!--#############################################################################################################-->
+    <function name="createTableFileName">
+        <!-- Function must be called with 1 argument:
+        1. Table name (determined by metadata in model.xml) -->
+        <definition>create_table_${arg1}.sql</definition>
+    </function>
+    <function name="createTablePath">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.function.sql.create_table_path}</definition>
+    </function>
+    <function name="getTableName">
+        <!-- Function must be called with 1 argument:
+        1. Default table name -->
+        <definition>${fmsnippet.function.sql.get_table_name}</definition>
+    </function>
+
+
+    <!--#############################################################################################################-->
+    <!--##### HELPER ################################################################################################-->
+    <!--#############################################################################################################-->
+    <function name="camelToSnake">
+        <!-- Function must be called with 1 argument:
+        1. Value to be transformed -->
+        <definition>${fmsnippet.function.camel_to_snake}</definition>
+    </function>
+    <function name="getCurrentDateTime">
+        <!-- Function must be called with 0 arguments -->
+        <definition>${fmsnippet.function.get_current_date_time}</definition>
+    </function>
+</functions>

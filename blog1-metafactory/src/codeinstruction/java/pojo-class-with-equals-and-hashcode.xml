@@ -1,0 +1,47 @@
+<java_package xmlns="https://metafactory.io/xsd/v1/java-codeinstruction"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+              name="${createPojoPackageName()}">
+    <class name="${createPojoClassName(${object.name})}"
+           visibility="public"
+           foreach="object">
+        <field name="${attribute.name}"
+                   visibility="private"
+                   access="rw"
+                   foreach="attribute">
+            <datatype>${attribute.type}</datatype>
+        </field>
+        <field name="${attribute.name}"
+                   visibility="private"
+                   access="rw"
+                   foreach="attribute">
+            <datatype>${attribute.type}</datatype>
+        </field>
+        <field name="${reference.name}"
+                   visibility="private"
+                   access="rw"
+                   foreach="reference">
+            <datatype>${reference.type}</datatype>
+        </field>
+        <method name="equals" visibility="public">
+            <annotation>@Override</annotation>
+          <parameter name="return">
+            <datatype>boolean</datatype>
+              <apicommentline>true if this object is the same as the obj argument; false otherwise</apicommentline>
+          </parameter>
+          <parameter name="other">
+            <datatype>Object</datatype>
+              <apicommentline>the reference object with which to compare</apicommentline>
+          </parameter>
+          <body>${fmsnippet.java.pojo.method.equals_by_bk}</body>
+        </method>
+        <method name="hashCode">
+          <annotation>@Override</annotation>
+          <parameter name="return">
+            <datatype>integer</datatype>
+              <apicommentline>a hash code value for this object</apicommentline>
+          </parameter>
+          <body>${fmsnippet.java.pojo.method.hashcode_by_bk}</body>
+        </method>
+    </class>
+</java_package>

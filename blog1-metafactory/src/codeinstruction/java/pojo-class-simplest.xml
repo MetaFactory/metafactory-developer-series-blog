@@ -1,0 +1,22 @@
+<java_package xmlns="https://metafactory.io/xsd/v1/java-codeinstruction"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+              name="org.blog1.pojo">
+    <class name="${object.name}"
+           visibility="public"
+           foreach="object">
+        <field name="${attribute.name}"
+                   visibility="private"
+                   access="rw"
+                   foreach="attribute">
+            <datatype>${attribute.type}</datatype>
+        </field>
+        <field name="${reference.name}"
+                   visibility="private"
+                   access="rw"
+                   foreach="reference">
+            <datatype>${reference.type}</datatype>
+        </field>
+    </class>
+</java_package>
+

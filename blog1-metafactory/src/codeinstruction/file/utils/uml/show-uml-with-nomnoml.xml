@@ -1,0 +1,8 @@
+<file xmlns="http://www.firstbase.nl/xsd/personaliom/pattern"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.firstbase.nl/xsd/personaliom/pattern http://www.firstbase.nl/xsd/personaliom/pattern.xsd"
+      name="show-uml-with-nomnoml.txt"
+      trimLeading="false"
+      trimTrailing="false">
+    <body>${fmsnippet.file.utils.uml.show-uml-with-nomnoml}</body>
+</file>
