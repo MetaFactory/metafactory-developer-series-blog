@@ -55,7 +55,7 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
         <#local attributeNameFU = attributeName?cap_first />
         <#if metafactory.getJavaType(attributeType) == "boolean">
             <#local getter = "is${attributeNameFU}" />
-        <#else> <#--not a primitive attribute -->
+        <#else>
             <#local getter = "get${attributeNameFU}" />
         </#if>
         .append(this.${getter}(), ${compareObject}.${getter}())
