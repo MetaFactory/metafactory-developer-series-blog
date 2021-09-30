@@ -18,8 +18,8 @@ public class Author {
 	/**
 	 * equals - Fields used as businesskey: 1) firstName 2) lastName.
 	 * 
-	 * @param other The reference object with which to compare
-	 * @return boolean Return true if this object is the same as the argument object, otherwise return false
+	 * @param other The reference object with which to compare.
+	 * @return boolean Return true if this object is the same as the argument object, otherwise return false.
 	 */
 	@Override
 	public boolean equals(final Object other) {
@@ -44,7 +44,7 @@ public class Author {
 	/**
 	 * hashCode - Fields used as businesskey: 1) firstName 2) lastName.
 	 * 
-	 * @return integer A hash code value for this object
+	 * @return integer A hash code value for this object.
 	 */
 	@Override
 	public int hashCode() {
