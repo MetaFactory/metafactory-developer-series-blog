@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personal-iom-project xmlns="http://www.firstbase.nl/xsd/personaliom/project" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" allowDeprecated="true" xsi:schemaLocation="http://www.firstbase.nl/xsd/personaliom/project http://www.firstbase.nl/xsd/personaliom/project.xsd">
+  <model>src/model/model.xml</model>
+  <pattern>src/codeinstruction/codeinstruction.xml</pattern>
+  <snippetsFolder>src/snippet</snippetsFolder>
+  <output>
+    <path type="java"></path>
+    <path type="xml"></path>
+    <path type="file"></path>
+  </output>
+  <propertyFiles>
+    <propertyFile filepath="template.properties" ignoreMissing="false"></propertyFile>
+    <propertyFile filepath="local.properties" ignoreMissing="false"></propertyFile>
+  </propertyFiles>
+  <configuration>
+    <usePrettierHtmlFormatter>true</usePrettierHtmlFormatter>
+    <alwaysRunEclipseJavaScriptFormatter>false</alwaysRunEclipseJavaScriptFormatter>
+    <alwaysRunEclipseJavaFormatter>true</alwaysRunEclipseJavaFormatter>
+    <sortMetaData>true</sortMetaData>
+    <auto_update_namespace>false</auto_update_namespace>
+  </configuration>
+  <businessStyle>
+    <author>marnix</author>
+    <javadocForInterface>Created by MetaFactory: Automation of Software Development</javadocForInterface>
+    <javadocForClass>Created by MetaFactory: Automation of Software Development</javadocForClass>
+    <header></header>
+    <footer></footer>
+    <createDefaultJavaDocForInterface>true</createDefaultJavaDocForInterface>
+    <addAuthorToDefaultJavaDocForInterface>true</addAuthorToDefaultJavaDocForInterface>
+    <createDefaultJavaDocForClass>true</createDefaultJavaDocForClass>
+    <addAuthorToDefaultJavaDocForClass>true</addAuthorToDefaultJavaDocForClass>
+  </businessStyle>
+</personal-iom-project>
