@@ -25,9 +25,9 @@
     <javadocForClass>Created by MetaFactory: Automation of Software Development</javadocForClass>
     <header></header>
     <footer></footer>
-    <createDefaultJavaDocForInterface>true</createDefaultJavaDocForInterface>
-    <addAuthorToDefaultJavaDocForInterface>true</addAuthorToDefaultJavaDocForInterface>
-    <createDefaultJavaDocForClass>true</createDefaultJavaDocForClass>
-    <addAuthorToDefaultJavaDocForClass>true</addAuthorToDefaultJavaDocForClass>
+    <createDefaultJavaDocForInterface>false</createDefaultJavaDocForInterface>
+    <addAuthorToDefaultJavaDocForInterface>false</addAuthorToDefaultJavaDocForInterface>
+    <createDefaultJavaDocForClass>false</createDefaultJavaDocForClass>
+    <addAuthorToDefaultJavaDocForClass>false</addAuthorToDefaultJavaDocForClass>
   </businessStyle>
 </personal-iom-project>
