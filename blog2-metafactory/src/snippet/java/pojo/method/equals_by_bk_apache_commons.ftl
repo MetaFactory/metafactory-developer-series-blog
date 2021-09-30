@@ -6,6 +6,9 @@
 <#--stop if generatedJavaMethod is null-->
 <#if !(generatedJavaMethod)??>  <#stop "generatedJavaMethod not found in context. It contains the ast of the created method" ></#if>
 
+<#--stop if comparatorFactory is null-->
+<#if !(comparatorFactory)??>  <#stop "comparatorFactory not found in context" ></#if>
+
 <#-- Here we show an example of an equals implementation with use of the Apache Commons library. -->
 
 <#-- Add import for EqualsBuilder to the class imports -->
@@ -43,15 +46,17 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
 <#--------------------------------------------------------------------------------------------------------------------->
 
 <#macro generateEqualsForAllAttributes>
-    <#local attributes = modelObject.attributes />
-    <#list attributes as attribute>
+    <#local bkAttributes = modelObject.findAttributesByMetaData("businesskey") />
+    <#local comparator = comparatorFactory.createMetaDataComparator("businesskey") />
+    <#local sortedBkAttributes = metafactory.sort(bkAttributes, comparator) />
+    <#list sortedBkAttributes as attribute>
         <#local attributeName = attribute.name />
-        <#assign attributeType = attribute.type />
-        <#assign attributeNameFU = attributeName?cap_first />
+        <#local attributeType = attribute.type />
+        <#local attributeNameFU = attributeName?cap_first />
         <#if metafactory.getJavaType(attributeType) == "boolean">
-            <#assign getter = "is${attributeNameFU}" />
+            <#local getter = "is${attributeNameFU}" />
         <#else> <#--not a primitive attribute -->
-            <#assign getter = "get${attributeNameFU}" />
+            <#local getter = "get${attributeNameFU}" />
         </#if>
         .append(this.${getter}(), ${compareObject}.${getter}())
 
