@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="https://metafactory.io/xsd/v1/model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://metafactory.io/xsd/v1/model https://metafactory.io/xsd/v1/model.xsd">
+  <package name="domain_model">
+    <object name="YourFirstObject">
+      <attribute name="firstAttribute" type="String"></attribute>
+    </object>
+  </package>
+</model>
