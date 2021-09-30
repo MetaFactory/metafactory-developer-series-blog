@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<code_instruction xmlns="https://metafactory.io/xsd/v1/codeinstruction" xmlns:java="https://metafactory.io/xsd/v1/java-codeinstruction" xmlns:ts="https://metafactory.io/xsd/v1/typescript-codeinstruction" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://metafactory.io/xsd/v1/codeinstruction https://metafactory.io/xsd/v1/codeinstruction.xsd https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd https://metafactory.io/xsd/v1/typescript-codeinstruction https://metafactory.io/xsd/v1/typescript-codeinstruction.xsd">
+<code_instruction
+        xmlns="https://metafactory.io/xsd/v1/codeinstruction"
+        xmlns:java="https://metafactory.io/xsd/v1/java-codeinstruction"
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://metafactory.io/xsd/v1/codeinstruction https://metafactory.io/xsd/v1/codeinstruction.xsd
+        https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd">
   <properties>
     <java.main.directory>src/main/java</java.main.directory>
-    <java.test.directory>src/test/java</java.test.directory>
+    <conf.main.directory>src/main/resources</conf.main.directory>
   </properties>
   <external_libraries>
     <external_library name="libProject">
       <path>./src</path>
       <patterns_folder>codeinstruction</patterns_folder>
       <snippets_folder>snippet</snippets_folder>
+      <function_library>codeinstruction/pattern-functions.xml</function_library>
     </external_library>
   </external_libraries>
+
+  <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-java8.xml"
+                              package="domain_model"
+                              path="${pattern.property.java.main.directory}" />
+<!--  <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-apache.xml" -->
+<!--                              package="domain_model" -->
+<!--                              path="${pattern.property.java.main.directory}" />-->
+<!--  <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-lombok.xml" -->
+<!--                              package="domain_model" -->
+<!--                              path="${pattern.property.java.main.directory}" />-->
+
+  <!--A code instruction to create the lines to show model at http://www.nomnoml.com/-->
+  <external_file id="libProject/file/utils/uml/show-uml-with-nomnoml.xml"
+                 package="domain_model"
+                 path="${pattern.property.conf.main.directory}/uml" />
 </code_instruction>

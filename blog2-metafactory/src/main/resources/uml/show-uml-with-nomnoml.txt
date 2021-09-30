@@ -1,0 +1,6 @@
+[Book|name: String;description: String
+]
+[Book]->1..1[Author]
+[Author|firstName: String;lastName: String
+]
+[Author]->0..n[Book]
