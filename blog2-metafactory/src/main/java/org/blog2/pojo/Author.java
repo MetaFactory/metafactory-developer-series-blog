@@ -16,7 +16,7 @@ public class Author {
 	private Book book;
 
 	/**
-	 * equals - Fields used as businesskey: 1) firstName 2) lastName.
+	 * equals - Fields used as business key: 1) firstName 2) lastName.
 	 * 
 	 * @param other The reference object with which to compare.
 	 * @return boolean Return true if this object is the same as the argument object, otherwise return false.
@@ -34,6 +34,7 @@ public class Author {
 		final Author otherAuthor = (Author) other;
 
 		boolean result;
+
 		result = Objects.equals(getFirstName(), otherAuthor.getFirstName());
 
 		result = result && Objects.equals(getLastName(), otherAuthor.getLastName());
@@ -42,7 +43,7 @@ public class Author {
 	}
 
 	/**
-	 * hashCode - Fields used as businesskey: 1) firstName 2) lastName.
+	 * hashCode - Fields used as business key: 1) firstName 2) lastName.
 	 * 
 	 * @return integer A hash code value for this object.
 	 */

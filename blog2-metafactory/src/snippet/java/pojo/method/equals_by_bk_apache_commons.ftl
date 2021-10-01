@@ -21,11 +21,10 @@ ${metafactory.addImportToClass("org.apache.commons.lang3.builder.EqualsBuilder")
     Fields used as business key:
 </#assign>
 
-<#assign modelObjectName = modelObject.name />
 <#assign class = function.createPojoClassName(modelObjectName) />
 <#assign compareObject = "other${class}" />
 
-<#-- This is actual equals implementation -->
+<#-- Here starts the actual equals implementation -->
 if (this == other) {
     return true;
 }
@@ -36,7 +35,7 @@ if (!(other instanceof ${class})) {
 
 final ${class} ${compareObject} = (${class}) other;
 return new EqualsBuilder()
-    <@generateEqualsForAllAttributes />
+    <@generateEqualsForBKAttributes />
     .isEquals();
 
 <#--Now set the apicomment we created in this template to the ast object of the method -->
@@ -45,7 +44,8 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
 
 <#--------------------------------------------------------------------------------------------------------------------->
 
-<#macro generateEqualsForAllAttributes>
+<#macro generateEqualsForBKAttributes>
+    <#local key = "businesskey" />
     <#local bkAttributes = modelObject.findAttributesByMetaData("businesskey") />
     <#local comparator = comparatorFactory.createMetaDataComparator("businesskey") />
     <#local sortedBkAttributes = metafactory.sort(bkAttributes, comparator) />
@@ -61,8 +61,8 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
         .append(this.${getter}(), ${compareObject}.${getter}())
 
         <#--Add this attribute to the apicomment -->
-        <#local counter = attribute_index + 1 />
+        <#local value = attribute.getMetaData(key)?number />
         <#local previousComment = apicommentText />
-        <#assign apicommentText = " ${previousComment} ${counter}) ${attributeName}" >
+        <#assign apicommentText = " ${previousComment} ${value}) ${attributeName}" >
     </#list>
 </#macro>
