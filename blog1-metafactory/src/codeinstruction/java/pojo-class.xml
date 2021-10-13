@@ -3,12 +3,10 @@
               xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
               name="${createPojoPackageName()}">
     <class name="${createPojoClassName(${object.name})}"
-           visibility="public"
            foreach="object"
            condition="${createPojo()}==true AND
                         ${isObjectEnum()}==false">
         <field name="${attribute.name}"
-                   visibility="private"
                    access="rw"
                    foreach="attribute"
                    condition="${isAttributeIncludedInPojo(${attribute.name})}==true AND
@@ -16,7 +14,6 @@
             <datatype>${attribute.type}</datatype>
         </field>
         <field name="${attribute.name}"
-                   visibility="private"
                    transient="true"
                    access="rw"
                    foreach="attribute"
@@ -25,7 +22,6 @@
             <datatype>${attribute.type}</datatype>
         </field>
         <field name="${reference.name}"
-                   visibility="private"
                    access="rw"
                    foreach="reference"
                    condition="${isReferenceIncludedInPojo(${reference.name})}==true AND
