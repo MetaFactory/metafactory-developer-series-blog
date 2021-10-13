@@ -1,0 +1,11 @@
+<java_package xmlns="https://metafactory.io/xsd/v1/java-codeinstruction"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+              name="${createPojoPackageName()}">
+    <class name="${createPojoClassName(${object.name})}"
+           foreach="object">
+        <apicommentline>Created by java/pojo/equals-and-hashcode-lombok.xml</apicommentline>
+        <import>lombok.EqualsAndHashCode</import>
+        <annotation>@EqualsAndHashCode</annotation>
+    </class>
+</java_package>
