@@ -1,0 +1,27 @@
+<java_package xmlns="https://metafactory.io/xsd/v1/java-codeinstruction"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+              name="${createPojoPackageName()}">
+    <class name="${createPojoClassName(${object.name})}"
+           foreach="object">
+        <apicommentline>Created by java/pojo/equals-and-hashcode-apache.xml</apicommentline>
+        <method name="equals">
+            <parameter name="return">
+                <apicommentline>Return true if this object is the same as the argument object, otherwise return false.</apicommentline>
+                <datatype>boolean</datatype>
+            </parameter>
+            <parameter name="other">
+                <apicommentline>The reference object with which to compare.</apicommentline>
+                <datatype>Object</datatype>
+            </parameter>
+            <body>${fmsnippet.java.pojo.method.equals_by_bk_apache_commons}</body>
+        </method>
+        <method name="hashCode">
+            <parameter name="return">
+                <apicommentline>A hash code value for this object.</apicommentline>
+                <datatype>integer</datatype>
+            </parameter>
+            <body>${fmsnippet.java.pojo.method.hashcode_by_bk_apache_commons}</body>
+        </method>
+    </class>
+</java_package>

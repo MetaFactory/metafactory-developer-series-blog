@@ -1,17 +1,13 @@
 package org.blog2.pojo;
 
-import java.util.Objects;
-
-import lombok.Getter;
-import lombok.Setter;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * Book - Created by java/pojo/fields-clean.xml Created by java/pojo/fields-lombok.xml Created by java/pojo/equals-and-hashcode-java8.xml
+ * Book - Created by java/pojo/fields-clean.xml Created by java/pojo/equals-and-hashcode-apache.xml
  * 
  * @author - marnix
  */
-@Getter
-@Setter
 public class Book {
 
 	private String name;
@@ -26,7 +22,6 @@ public class Book {
 	 * @param other The reference object with which to compare.
 	 * @return boolean Return true if this object is the same as the argument object, otherwise return false.
 	 */
-	@Override
 	public boolean equals(final Object other) {
 		if (this == other) {
 			return true;
@@ -37,14 +32,11 @@ public class Book {
 		}
 
 		final Book otherBook = (Book) other;
+		return new EqualsBuilder().append(this.getName(), otherBook.getName())
 
-		boolean result;
+				.append(this.getDescription(), otherBook.getDescription())
 
-		result = Objects.equals(getName(), otherBook.getName());
-
-		result = result && Objects.equals(getDescription(), otherBook.getDescription());
-
-		return result;
+				.isEquals();
 	}
 
 	/**
@@ -52,9 +44,66 @@ public class Book {
 	 * 
 	 * @return integer A hash code value for this object.
 	 */
-	@Override
 	public int hashCode() {
-		return Objects.hash(getName(), getDescription());
+		return new HashCodeBuilder().append(this.getName())
+
+				.append(this.getDescription())
+
+				.toHashCode();
+	}
+
+	/**
+	 * Getter for property name.
+	 * 
+	 * @return value of property name
+	 */
+	public String getName() {
+		return this.name;
+	}
+
+	/**
+	 * Setter for property name.
+	 * 
+	 * @param name new value of property name
+	 */
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Getter for property description.
+	 * 
+	 * @return value of property description
+	 */
+	public String getDescription() {
+		return this.description;
+	}
+
+	/**
+	 * Setter for property description.
+	 * 
+	 * @param description new value of property description
+	 */
+	public void setDescription(final String description) {
+		this.description = description;
+	}
+
+	/**
+	 * Getter for property author.
+	 * 
+	 * @return value of property author
+	 */
+	public Author getAuthor() {
+		return this.author;
+	}
+
+	/**
+	 * Setter for property author.
+	 * 
+	 * @param author new value of property author
+	 */
+	public void setAuthor(final Author author) {
+		this.author = author;
 	}
 
 }

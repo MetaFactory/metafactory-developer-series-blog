@@ -1,17 +1,13 @@
 package org.blog2.pojo;
 
-import java.util.Objects;
-
-import lombok.Getter;
-import lombok.Setter;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * Author - Created by java/pojo/fields-clean.xml Created by java/pojo/fields-lombok.xml Created by java/pojo/equals-and-hashcode-java8.xml
+ * Author - Created by java/pojo/fields-clean.xml Created by java/pojo/equals-and-hashcode-apache.xml
  * 
  * @author - marnix
  */
-@Getter
-@Setter
 public class Author {
 
 	private String firstName;
@@ -26,7 +22,6 @@ public class Author {
 	 * @param other The reference object with which to compare.
 	 * @return boolean Return true if this object is the same as the argument object, otherwise return false.
 	 */
-	@Override
 	public boolean equals(final Object other) {
 		if (this == other) {
 			return true;
@@ -37,14 +32,11 @@ public class Author {
 		}
 
 		final Author otherAuthor = (Author) other;
+		return new EqualsBuilder().append(this.getFirstName(), otherAuthor.getFirstName())
 
-		boolean result;
+				.append(this.getLastName(), otherAuthor.getLastName())
 
-		result = Objects.equals(getFirstName(), otherAuthor.getFirstName());
-
-		result = result && Objects.equals(getLastName(), otherAuthor.getLastName());
-
-		return result;
+				.isEquals();
 	}
 
 	/**
@@ -52,9 +44,66 @@ public class Author {
 	 * 
 	 * @return integer A hash code value for this object.
 	 */
-	@Override
 	public int hashCode() {
-		return Objects.hash(getFirstName(), getLastName());
+		return new HashCodeBuilder().append(this.getFirstName())
+
+				.append(this.getLastName())
+
+				.toHashCode();
+	}
+
+	/**
+	 * Getter for property firstName.
+	 * 
+	 * @return value of property firstName
+	 */
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	/**
+	 * Setter for property firstName.
+	 * 
+	 * @param firstName new value of property firstName
+	 */
+	public void setFirstName(final String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * Getter for property lastName.
+	 * 
+	 * @return value of property lastName
+	 */
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	/**
+	 * Setter for property lastName.
+	 * 
+	 * @param lastName new value of property lastName
+	 */
+	public void setLastName(final String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * Getter for property book.
+	 * 
+	 * @return value of property book
+	 */
+	public Book getBook() {
+		return this.book;
+	}
+
+	/**
+	 * Setter for property book.
+	 * 
+	 * @param book new value of property book
+	 */
+	public void setBook(final Book book) {
+		this.book = book;
 	}
 
 }
