@@ -1,0 +1,17 @@
+<java_package xmlns="https://metafactory.io/xsd/v1/java-codeinstruction"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+              name="${createPojoPackageName()}">
+    <class name="${createPojoClassName(${object.name})}"
+           foreach="object">
+        <apicommentline>Created by java/pojo/tostring-apache.xml</apicommentline>
+        <method name="toString">
+            <annotation>@Override</annotation>
+            <parameter name="return">
+                <apicommentline>Return String representation of ${object.name}</apicommentline>
+                <datatype>String</datatype>
+            </parameter>
+            <body>${fmsnippet.java.pojo.method.tostring_by_bk_apache}</body>
+        </method>
+    </class>
+</java_package>

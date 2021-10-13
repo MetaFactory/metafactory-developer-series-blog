@@ -1,9 +1,11 @@
 package org.blog3.pojo;
 
-import java.util.Objects;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * Author - Created by java/pojo/fields-clean.xml Created by java/pojo/equals-and-hashcode-java8.xml Created by java/pojo/tostring-java8.xml
+ * Author - Created by java/pojo/fields-clean.xml Created by java/pojo/equals-and-hashcode-apache.xml Created by java/pojo/tostring-apache.xml
  * 
  * @author - marnix
  */
@@ -32,14 +34,11 @@ public class Author {
 		}
 
 		final Author otherAuthor = (Author) other;
+		return new EqualsBuilder().append(this.getFirstName(), otherAuthor.getFirstName())
 
-		boolean result;
+				.append(this.getLastName(), otherAuthor.getLastName())
 
-		result = Objects.equals(getFirstName(), otherAuthor.getFirstName());
-
-		result = result && Objects.equals(getLastName(), otherAuthor.getLastName());
-
-		return result;
+				.isEquals();
 	}
 
 	/**
@@ -49,7 +48,11 @@ public class Author {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(getFirstName(), getLastName());
+		return new HashCodeBuilder().append(this.getFirstName())
+
+				.append(this.getLastName())
+
+				.toHashCode();
 	}
 
 	/**
@@ -59,7 +62,7 @@ public class Author {
 	 */
 	@Override
 	public String toString() {
-		return "Author [firstName=" + getFirstName() + ", lastName=" + getLastName() + "]";
+		return new ToStringBuilder().append("firstName", getFirstName()).append("lastName", getLastName()).toString();
 	}
 
 	/**

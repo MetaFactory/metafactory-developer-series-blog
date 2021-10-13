@@ -1,9 +1,11 @@
 package org.blog3.pojo;
 
-import java.util.Objects;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * Book - Created by java/pojo/fields-clean.xml Created by java/pojo/equals-and-hashcode-java8.xml Created by java/pojo/tostring-java8.xml
+ * Book - Created by java/pojo/fields-clean.xml Created by java/pojo/equals-and-hashcode-apache.xml Created by java/pojo/tostring-apache.xml
  * 
  * @author - marnix
  */
@@ -32,14 +34,11 @@ public class Book {
 		}
 
 		final Book otherBook = (Book) other;
+		return new EqualsBuilder().append(this.getName(), otherBook.getName())
 
-		boolean result;
+				.append(this.getDescription(), otherBook.getDescription())
 
-		result = Objects.equals(getName(), otherBook.getName());
-
-		result = result && Objects.equals(getDescription(), otherBook.getDescription());
-
-		return result;
+				.isEquals();
 	}
 
 	/**
@@ -49,7 +48,11 @@ public class Book {
 	 */
 	@Override
 	public int hashCode() {
-		return Objects.hash(getName(), getDescription());
+		return new HashCodeBuilder().append(this.getName())
+
+				.append(this.getDescription())
+
+				.toHashCode();
 	}
 
 	/**
@@ -59,7 +62,7 @@ public class Book {
 	 */
 	@Override
 	public String toString() {
-		return "Book [name=" + getName() + ", description=" + getDescription() + "]";
+		return new ToStringBuilder().append("name", getName()).append("description", getDescription()).toString();
 	}
 
 	/**
