@@ -8,7 +8,7 @@
     <!--#############################################################################################################-->
     <function name="createPojoPackageName">
         <!-- Function must be called with 0 arguments -->
-        <definition>org.blog2.pojo</definition>
+        <definition>org.blog3.pojo</definition>
     </function>
     <function name="createPojoClassName">
         <!-- Function must be called with 1 argument:

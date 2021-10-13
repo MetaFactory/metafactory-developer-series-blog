@@ -6,6 +6,7 @@
            foreach="object">
         <apicommentline>Created by java/pojo/equals-and-hashcode-apache.xml</apicommentline>
         <method name="equals">
+            <annotation>@Override</annotation>
             <parameter name="return">
                 <apicommentline>Return true if this object is the same as the argument object, otherwise return false.</apicommentline>
                 <datatype>boolean</datatype>
@@ -17,6 +18,7 @@
             <body>${fmsnippet.java.pojo.method.equals_by_bk_apache_commons}</body>
         </method>
         <method name="hashCode">
+            <annotation>@Override</annotation>
             <parameter name="return">
                 <apicommentline>A hash code value for this object.</apicommentline>
                 <datatype>integer</datatype>
