@@ -12,7 +12,7 @@
         <field name="${reference.name}"
                access="rw"
                foreach="reference">
-            <datatype>${reference.type}</datatype>
+            <datatype>${createPojoClassName(${object.name})}</datatype>
         </field>
         <method name="equals">
             <annotation>@Override</annotation>
