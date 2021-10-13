@@ -13,7 +13,7 @@
   <external_libraries>
     <external_library name="libProject">
       <path>./src</path>
-      <patterns_folder>codeinstruction</patterns_folder>
+      <codeinstructions_folder>codeinstruction</codeinstructions_folder>
       <snippets_folder>snippet</snippets_folder>
       <function_library>codeinstruction/pattern-functions.xml</function_library>
     </external_library>

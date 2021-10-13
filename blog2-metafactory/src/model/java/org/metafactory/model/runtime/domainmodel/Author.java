@@ -30,7 +30,7 @@ public class Author {
 	/**
 	 * getInstance -
 	 * 
-	 * @param authorModelObject The model object named ${${object.name}}
+	 * @param authorModelObject The model object named Author
 	 * @return Author The runtime model representation of model object named Author
 	 * @throws InvalidPatternException
 	 */

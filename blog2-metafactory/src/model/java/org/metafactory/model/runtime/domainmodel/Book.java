@@ -30,7 +30,7 @@ public class Book {
 	/**
 	 * getInstance -
 	 * 
-	 * @param bookModelObject The model object named ${${object.name}}
+	 * @param bookModelObject The model object named Book
 	 * @return Book The runtime model representation of model object named Book
 	 * @throws InvalidPatternException
 	 */
