@@ -1,10 +1,17 @@
 package org.blog2.pojo;
 
+import java.util.Objects;
+
+import lombok.Getter;
+import lombok.Setter;
+
 /**
- * Author - Created by java/pojo/fields-clean.xml
+ * Author - Created by java/pojo/fields-clean.xml Created by java/pojo/fields-lombok.xml Created by java/pojo/equals-and-hashcode-java8.xml
  * 
  * @author - marnix
  */
+@Getter
+@Setter
 public class Author {
 
 	private String firstName;
@@ -14,57 +21,40 @@ public class Author {
 	private Book book;
 
 	/**
-	 * Getter for property firstName.
+	 * equals - Fields used as business key: 1) firstName 2) lastName.
 	 * 
-	 * @return value of property firstName
+	 * @param other The reference object with which to compare.
+	 * @return boolean Return true if this object is the same as the argument object, otherwise return false.
 	 */
-	public String getFirstName() {
-		return this.firstName;
+	@Override
+	public boolean equals(final Object other) {
+		if (this == other) {
+			return true;
+		}
+
+		if (!(other instanceof Author)) {
+			return false;
+		}
+
+		final Author otherAuthor = (Author) other;
+
+		boolean result;
+
+		result = Objects.equals(getFirstName(), otherAuthor.getFirstName());
+
+		result = result && Objects.equals(getLastName(), otherAuthor.getLastName());
+
+		return result;
 	}
 
 	/**
-	 * Setter for property firstName.
+	 * hashCode - Fields used as business key: 1) firstName 2) lastName.
 	 * 
-	 * @param firstName new value of property firstName
+	 * @return integer A hash code value for this object.
 	 */
-	public void setFirstName(final String firstName) {
-		this.firstName = firstName;
-	}
-
-	/**
-	 * Getter for property lastName.
-	 * 
-	 * @return value of property lastName
-	 */
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	/**
-	 * Setter for property lastName.
-	 * 
-	 * @param lastName new value of property lastName
-	 */
-	public void setLastName(final String lastName) {
-		this.lastName = lastName;
-	}
-
-	/**
-	 * Getter for property book.
-	 * 
-	 * @return value of property book
-	 */
-	public Book getBook() {
-		return this.book;
-	}
-
-	/**
-	 * Setter for property book.
-	 * 
-	 * @param book new value of property book
-	 */
-	public void setBook(final Book book) {
-		this.book = book;
+	@Override
+	public int hashCode() {
+		return Objects.hash(getFirstName(), getLastName());
 	}
 
 }

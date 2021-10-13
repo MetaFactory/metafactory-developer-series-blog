@@ -25,9 +25,9 @@
     <java:external_java_package id="libProject/java/pojo/fields-lombok.xml"
                                 package="domain_model"
                                 path="${pattern.property.java.main.directory}" />
-<!--    <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-java8.xml"-->
-<!--                                package="domain_model"-->
-<!--                                path="${pattern.property.java.main.directory}" />-->
+    <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-java8.xml"
+                                package="domain_model"
+                                path="${pattern.property.java.main.directory}" />
 <!--    <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-apache.xml"-->
 <!--                                package="domain_model"-->
 <!--                                path="${pattern.property.java.main.directory}" />-->
