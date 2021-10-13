@@ -21,6 +21,7 @@ ${metafactory.addImportToClass("org.apache.commons.lang3.builder.EqualsBuilder")
     Fields used as business key:
 </#assign>
 
+<#assign modelObjectName = modelObject.name />
 <#assign class = function.createPojoClassName(modelObjectName) />
 <#assign compareObject = "other${class}" />
 

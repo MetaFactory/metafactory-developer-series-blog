@@ -3,22 +3,18 @@
               xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
               name="${createPojoPackageName()}">
     <class name="${createPojoClassName(${object.name})}"
-           visibility="public"
            foreach="object">
         <field name="${attribute.name}"
-               visibility="private"
                access="rw"
                foreach="attribute">
             <datatype>${attribute.type}</datatype>
         </field>
         <field name="${reference.name}"
-               visibility="private"
                access="rw"
                foreach="reference">
             <datatype>${reference.type}</datatype>
         </field>
-        <method name="equals"
-                visibility="public">
+        <method name="equals">
             <parameter name="return">
                 <apicommentline>Return true if this object is the same as the argument object, otherwise return false.</apicommentline>
                 <datatype>boolean</datatype>
@@ -29,8 +25,7 @@
             </parameter>
             <body>${fmsnippet.java.pojo.method.equals_by_bk_apache_commons}</body>
         </method>
-        <method name="hashCode"
-                visibility="public">
+        <method name="hashCode">
             <parameter name="return">
                 <apicommentline>A hash code value for this object.</apicommentline>
                 <datatype>integer</datatype>
