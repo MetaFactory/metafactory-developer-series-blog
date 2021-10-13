@@ -1,0 +1,20 @@
+<java_package xmlns="https://metafactory.io/xsd/v1/java-codeinstruction"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+              name="${createPojoPackageName()}">
+    <class name="${createPojoClassName(${object.name})}"
+           foreach="object">
+        <apicommentline>Created by java/pojo/fields-clean.xml</apicommentline>
+        <field name="${attribute.name}"
+               access="rw"
+               foreach="attribute">
+            <datatype>${attribute.type}</datatype>
+        </field>
+        <field name="${reference.name}"
+               access="rw"
+               foreach="reference">
+            <datatype>${createPojoClassName(${reference.type})}</datatype>
+        </field>
+    </class>
+</java_package>
+

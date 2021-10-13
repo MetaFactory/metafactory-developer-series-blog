@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions xmlns="http://www.firstbase.nl/xsd/personaliom/pattern"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.firstbase.nl/xsd/personaliom/pattern
+                              http://www.firstbase.nl/xsd/personaliom/pattern.xsd">
+    <!--#############################################################################################################-->
+    <!--##### JAVA ##################################################################################################-->
+    <!--#############################################################################################################-->
+    <function name="createPojoPackageName">
+        <!-- Function must be called with 0 arguments -->
+        <definition>org.blog2.pojo</definition>
+    </function>
+    <function name="createPojoClassName">
+        <!-- Function must be called with 1 argument:
+        1. Name of model object -->
+        <definition>${arg1}</definition>
+    </function>
+</functions>

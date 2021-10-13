@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="https://metafactory.io/xsd/v1/model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://metafactory.io/xsd/v1/model https://metafactory.io/xsd/v1/model.xsd">
+  <package name="domain_model">
+    <!-- A book that is written by one author-->
+    <object name="Book">
+      <metadata>
+        <name.plural>Books</name.plural>
+      </metadata>
+      <attribute name="name" type="String" notnull="true">
+        <metadata>
+          <businesskey>1</businesskey>
+        </metadata>
+      </attribute>
+      <attribute name="description" type="String" notnull="true">
+        <metadata>
+          <businesskey>2</businesskey>
+        </metadata>
+      </attribute>
+      <reference name="author" type="Author" multiplicity="1..1" notnull="true"></reference>
+    </object>
+    <!-- A writer of a book -->
+    <object name="Author">
+      <metadata>
+        <name.plural>Authors</name.plural>
+      </metadata>
+      <attribute name="firstName" type="String" notnull="true">
+        <metadata>
+          <businesskey>1</businesskey>
+        </metadata>
+      </attribute>
+      <attribute name="lastName" type="String" notnull="true">
+        <metadata>
+          <businesskey>2</businesskey>
+        </metadata>
+      </attribute>
+      <reference name="book" type="Book" multiplicity="0..n"></reference>
+    </object>
+  </package>
+</model>
