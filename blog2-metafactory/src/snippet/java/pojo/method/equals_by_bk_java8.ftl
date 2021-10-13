@@ -49,7 +49,7 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
     <#local bkAttributes = modelObject.findAttributesByMetaData(key) />
     <#if bkAttributes?size == 0>
         <#stop "No metadata on attributes was found for modelObject ${modelObject.name}.
-        Please add <businesskey> with an integer that indicates the order of processing to an attribute that
+        Please add <${key}> with an integer that indicates the order of processing to an attribute that
         should be used for the implementation of the equals method." />
     </#if>
     <#local comparator = comparatorFactory.createMetaDataComparator(key) />
@@ -58,7 +58,8 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
         <#local attributeName = attribute.name />
         <#local attributeType = attribute.type />
         <#local attributeNameFU = attributeName?cap_first />
-        <#if metafactory.getJavaType(attributeType) == "boolean">
+        <#local javaType = metafactory.getJavaType(attributeType) />
+        <#if javaType=="boolean" || javaType=="Boolean">
             <#local getter = "is${attributeNameFU}" />
         <#else>
             <#local getter = "get${attributeNameFU}" />
