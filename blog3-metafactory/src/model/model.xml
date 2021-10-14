@@ -20,7 +20,11 @@
           <businesskey>2</businesskey>
         </metadata>
       </attribute>
-      <reference name="author" type="Author" multiplicity="1..1" notnull="true"></reference>
+      <reference name="author" type="Author" multiplicity="1..1" notnull="true">
+        <metadata>
+          <businesskey>3</businesskey>
+        </metadata>
+      </reference>
     </object>
     <!-- A writer of a book -->
     <object name="Author">
@@ -37,7 +41,11 @@
           <businesskey>2</businesskey>
         </metadata>
       </attribute>
-      <reference name="book" type="Book" multiplicity="0..n"></reference>
+      <reference name="book" type="Book" multiplicity="0..n">
+        <metadata>
+          <businesskey>3</businesskey>
+        </metadata>
+      </reference>
     </object>
   </package>
 </model>

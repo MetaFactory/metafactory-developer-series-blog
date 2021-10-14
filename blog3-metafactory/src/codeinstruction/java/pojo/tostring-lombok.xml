@@ -13,5 +13,11 @@
             <annotation condition="${doesAttributeHaveBusinessKey(${object.name}, ${attribute.name})}">@ToString.Include</annotation>
             <datatype>${attribute.type}</datatype>
         </field>
+        <field name="${reference.name}"
+               access=""
+               foreach="reference">
+            <annotation condition="${doesReferenceHaveBusinessKey(${object.name}, ${reference.name})}">@ToString.Include</annotation>
+            <datatype>${createPojoClassName(${reference.type})}</datatype>
+        </field>
     </class>
 </java_package>

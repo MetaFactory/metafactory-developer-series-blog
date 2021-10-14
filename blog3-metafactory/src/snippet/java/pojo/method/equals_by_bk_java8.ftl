@@ -34,7 +34,7 @@ final ${class} ${compareObject} = (${class}) other;
 
 boolean result;
 
-<@generateEqualsForBKAttributes />
+<@generateEqualsForBKAttributesAndReferences />
 
 return result;
 
@@ -44,35 +44,41 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
 
 <#--------------------------------------------------------------------------------------------------------------------->
 
-<#macro generateEqualsForBKAttributes>
+<#macro generateEqualsForBKAttributesAndReferences>
     <#local key = "businesskey" />
     <#local bkAttributes = modelObject.findAttributesByMetaData(key) />
-    <#if bkAttributes?size == 0>
-        <#stop "No metadata on attributes was found for modelObject ${modelObject.name}.
-        Please add <${key}> with an integer that indicates the order of processing to an attribute that
-        should be used for the implementation of the equals method." />
+    <#local bkReferences = modelObject.findReferencesByMetaData(key) />
+    <#if bkAttributes?size == 0 && bkReferences?size == 0>
+        <#stop "No metadata on attributes or references was found for modelObject ${modelObject.name}.
+        Please add <${key}> with an integer that indicates the order of processing to an attribute and/or reference
+        that should be used for the implementation of the equals method." />
     </#if>
     <#local comparator = comparatorFactory.createMetaDataComparator(key) />
     <#local sortedBkAttributes = metafactory.sort(bkAttributes, comparator) />
-    <#list sortedBkAttributes as attribute>
-        <#local attributeName = attribute.name />
-        <#local attributeType = attribute.type />
-        <#local attributeNameFU = attributeName?cap_first />
-        <#if metafactory.getJavaType(attributeType) == "boolean">
-            <#local getter = "is${attributeNameFU}" />
+    <#local sortedBkReferences = metafactory.sort(bkReferences, comparator) />
+    <#local attributesAndReferences = metafactory.createEmptyList() />
+    <#if attributesAndReferences.addAll(sortedBkAttributes) ><#-- ignore result of add method --></#if>
+    <#if attributesAndReferences.addAll(sortedBkReferences) ><#-- ignore result of add method --></#if>
+    <#list attributesAndReferences as attributeOrReference>
+        <#local name = attributeOrReference.name />
+        <#local type = attributeOrReference.type />
+        <#local nameFU = name?cap_first />
+        <#local javaType = metafactory.getJavaType(type) />
+        <#if javaType == "boolean" || javaType == "Boolean">
+            <#local getter = "is${nameFU}" />
         <#else>
-            <#local getter = "get${attributeNameFU}" />
+            <#local getter = "get${nameFU}" />
         </#if>
-        <#local value = attribute.getMetaData(key)?number />
+        <#local value = attributeOrReference.getMetaData(key)?number />
         <#if value == 1>
             result = Objects.equals(${getter}(), ${compareObject}.${getter}());
         <#else>
             result = result && Objects.equals(${getter}(), ${compareObject}.${getter}());
         </#if>
 
-        <#--Add this attribute to the apicomment -->
+        <#--Add this attribute or reference to the apicomment -->
+        <#local value = attributeOrReference.getMetaData(key) />
         <#local previousComment = apicommentText />
-        <#assign apicommentText = " ${previousComment} ${value}) ${attributeName}" >
+        <#assign apicommentText = " ${previousComment} ${value}) ${name}" >
     </#list>
 </#macro>
-

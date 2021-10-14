@@ -16,6 +16,12 @@
 
 <#--------------------------------------------------------------------------------------------------------------->
 
+<#function doesReferenceHaveBusinessKey arg...>
+    <#return metafactory.applyPatternDefinedFunction("doesReferenceHaveBusinessKey", arg) />
+</#function>
+
+<#--------------------------------------------------------------------------------------------------------------->
+
 <#function createPojoClassName arg...>
     <#return metafactory.applyPatternDefinedFunction("createPojoClassName", arg) />
 </#function>
