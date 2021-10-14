@@ -24,7 +24,7 @@
                 <apicommentline>The reference object with which to compare.</apicommentline>
                 <datatype>Object</datatype>
             </parameter>
-            <body>${fmsnippet.java.pojo.method.equals_by_bk_apache_commons}</body>
+            <body>${fmsnippet.java.pojo.method.equals_by_bk_apache}</body>
         </method>
         <method name="hashCode">
             <annotation>@Override</annotation>
@@ -32,7 +32,7 @@
                 <apicommentline>A hash code value for this object.</apicommentline>
                 <datatype>integer</datatype>
             </parameter>
-            <body>${fmsnippet.java.pojo.method.hashcode_by_bk_apache_commons}</body>
+            <body>${fmsnippet.java.pojo.method.hashcode_by_bk_apache}</body>
         </method>
     </class>
 </java_package>
