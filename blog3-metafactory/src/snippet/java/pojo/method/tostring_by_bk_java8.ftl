@@ -1,10 +1,24 @@
 <#--stop if modelObject is null-->
 <#if !(modelObject)??>  <#stop "modelObject not found in context" ></#if>
 
+<#--stop if generatedJavaMethod is null-->
+<#if !(generatedJavaMethod)??>  <#stop "generatedJavaMethod not found in context. It contains the ast of the created method" ></#if>
+
+<#-- Retrieve the ast object of the method created by the code instruction and add some extra text -->
+<#assign apicomment = generatedJavaMethod.apiComment />
+<#assign apicommentText>
+    ${apicomment}
+    Fields used as business key:
+</#assign>
+
 <#assign modelObjectName = modelObject.name />
 return
 <@addAttributesToMethod />
 "]";
+
+<#--Now set the apicomment we created in this template to the ast object of the method -->
+<#assign apicommentText = "${apicommentText}." />
+${generatedJavaMethod.setApiComment(apicommentText)}
 
 <#--------------------------------------------------------------------------------------------------------------------->
 
@@ -35,6 +49,11 @@ return
             ", ${attributeName}=" + ${getter} +
         </#if>
         <#local index = index + 1 />
+
+        <#--Add this attribute to the apicomment -->
+        <#local previousComment = apicommentText />
+        <#local value = attribute.getMetaData(key)?number />
+        <#assign apicommentText = " ${previousComment} ${value}) ${attributeName}" >
     </#list>
 </#macro>
 

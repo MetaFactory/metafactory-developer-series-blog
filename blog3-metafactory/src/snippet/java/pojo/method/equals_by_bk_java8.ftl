@@ -49,7 +49,7 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
     <#local bkAttributes = modelObject.findAttributesByMetaData(key) />
     <#if bkAttributes?size == 0>
         <#stop "No metadata on attributes was found for modelObject ${modelObject.name}.
-        Please add <businesskey> with an integer that indicates the order of processing to an attribute that
+        Please add <${key}> with an integer that indicates the order of processing to an attribute that
         should be used for the implementation of the equals method." />
     </#if>
     <#local comparator = comparatorFactory.createMetaDataComparator(key) />
@@ -70,7 +70,7 @@ ${generatedJavaMethod.setApiComment(apicommentText)}
             result = result && Objects.equals(${getter}(), ${compareObject}.${getter}());
         </#if>
 
-    <#--Add this attribute to the apicomment -->
+        <#--Add this attribute to the apicomment -->
         <#local previousComment = apicommentText />
         <#assign apicommentText = " ${previousComment} ${value}) ${attributeName}" >
     </#list>
