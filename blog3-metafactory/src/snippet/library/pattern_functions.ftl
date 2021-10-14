@@ -19,3 +19,9 @@
 <#function createPojoClassName arg...>
     <#return metafactory.applyPatternDefinedFunction("createPojoClassName", arg) />
 </#function>
+
+<#--------------------------------------------------------------------------------------------------------------->
+
+<#function doesAttributeHaveBusinessKey arg...>
+    <#return metafactory.applyPatternDefinedFunction("doesAttributeHaveBusinessKey", arg) />
+</#function>

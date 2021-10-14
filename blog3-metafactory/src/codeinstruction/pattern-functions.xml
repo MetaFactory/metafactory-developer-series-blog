@@ -15,4 +15,10 @@
         1. Name of model object -->
         <definition>${arg1}</definition>
     </function>
+    <function name="doesAttributeHaveBusinessKey">
+        <!-- Function must be called with 2 arguments:
+        1. Name of model object
+        2. Name of model attribute -->
+        <definition>${fmsnippet.condition.does_attribute_have_business_key}</definition>
+    </function>
 </functions>

@@ -15,9 +15,22 @@
             <path>./src</path>
             <codeinstructions_folder>codeinstruction</codeinstructions_folder>
             <snippets_folder>snippet</snippets_folder>
+            <features_folder>features</features_folder>
             <function_library>codeinstruction/pattern-functions.xml</function_library>
         </external_library>
     </external_libraries>
+    
+    <features>
+<!--        <feature id="libProject/java/pojo/java8"-->
+<!--                 description="Creates POJO classes based on Java8"-->
+<!--                 package="domain_model" />-->
+<!--        <feature id="libProject/java/pojo/lombok"-->
+<!--                 description="Creates POJO classes with Lombok annotations"-->
+<!--                 package="domain_model" />-->
+<!--        <feature id="libProject/java/pojo/apache"-->
+<!--                 description="Creates POJO classes with Apache Commons library"-->
+<!--                 package="domain_model" />-->
+    </features>
 
     <java:external_java_package id="libProject/java/pojo/fields-clean.xml"
                                 package="domain_model"

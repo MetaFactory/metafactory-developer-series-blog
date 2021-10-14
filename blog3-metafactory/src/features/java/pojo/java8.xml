@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature xmlns="https://metafactory.io/xsd/v1/codeinstruction"
+         xmlns:java="https://metafactory.io/xsd/v1/java-codeinstruction"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://metafactory.io/xsd/v1/codeinstruction https://metafactory.io/xsd/v1/codeinstruction.xsd
+         https://metafactory.io/xsd/v1/java-codeinstruction https://metafactory.io/xsd/v1/java-codeinstruction.xsd"
+         id="java8"
+         description="Creates POJO classes based on Java8">
+    <java:external_java_package id="libProject/java/pojo/fields-clean.xml"
+                                path="${model.package.property.java.main.directory}" />
+    <java:external_java_package id="libProject/java/pojo/equals-and-hashcode-java8.xml"
+                                path="${model.package.property.java.main.directory}" />
+    <java:external_java_package id="libProject/java/pojo/tostring-java8.xml"
+                                path="${model.package.property.java.main.directory}" />
+</feature>

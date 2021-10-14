@@ -13,12 +13,16 @@ import lombok.ToString;
  */
 @Getter
 @Setter
-@EqualsAndHashCode
-@ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(onlyExplicitlyIncluded = true)
 public class Author {
 
+	@EqualsAndHashCode.Include
+	@ToString.Include
 	private String firstName;
 
+	@EqualsAndHashCode.Include
+	@ToString.Include
 	private String lastName;
 
 	private Book book;

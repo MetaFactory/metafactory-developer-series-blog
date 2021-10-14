@@ -6,6 +6,12 @@
            foreach="object">
         <apicommentline>Created by java/pojo/equals-and-hashcode-lombok.xml</apicommentline>
         <import>lombok.EqualsAndHashCode</import>
-        <annotation>@EqualsAndHashCode</annotation>
+        <annotation>@EqualsAndHashCode(onlyExplicitlyIncluded = true)</annotation>
+        <field name="${attribute.name}"
+               access=""
+               foreach="attribute">
+            <annotation condition="${doesAttributeHaveBusinessKey(${object.name}, ${attribute.name})}">@EqualsAndHashCode.Include</annotation>
+            <datatype>${attribute.type}</datatype>
+        </field>
     </class>
 </java_package>

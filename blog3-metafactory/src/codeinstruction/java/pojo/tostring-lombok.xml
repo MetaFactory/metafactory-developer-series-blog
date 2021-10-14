@@ -6,6 +6,12 @@
            foreach="object">
         <apicommentline>Created by java/pojo/tostring-lombok.xml</apicommentline>
         <import>lombok.ToString</import>
-        <annotation>@ToString</annotation>
+        <annotation>@ToString(onlyExplicitlyIncluded = true)</annotation>
+        <field name="${attribute.name}"
+               access=""
+               foreach="attribute">
+            <annotation condition="${doesAttributeHaveBusinessKey(${object.name}, ${attribute.name})}">@ToString.Include</annotation>
+            <datatype>${attribute.type}</datatype>
+        </field>
     </class>
 </java_package>

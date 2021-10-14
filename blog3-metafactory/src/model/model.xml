@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model xmlns="https://metafactory.io/xsd/v1/model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://metafactory.io/xsd/v1/model https://metafactory.io/xsd/v1/model.xsd">
   <package name="domain_model">
+    <metadata>
+      <conf.main.directory>src/main/resources</conf.main.directory>
+      <java.main.directory>src/main/java</java.main.directory>
+    </metadata>
     <!-- A book that is written by one author-->
     <object name="Book">
       <metadata>
